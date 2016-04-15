@@ -1,7 +1,7 @@
-# from django.contrib import admin
+from django.contrib import admin
 # from mezzanine.core.admin import TabularDynamicInlineAdmin
-# from mezzanine.pages.admin import PageAdmin
-# from .models import HomePage
+from mezzanine.pages.admin import PageAdmin
+from .models import HomePage
 # # , Slide
 
 
@@ -13,4 +13,4 @@
 
 # # admin.site.register(HomePage, HomePageAdmin)
 
-# admin.site.register(HomePage, PageAdmin)
+admin.site.register(HomePage, PageAdmin)
