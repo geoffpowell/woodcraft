@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE }}"{% if LANGUAGE_BIDI %} dir="rtl"{% endif %}>
+{% load pages_tags mezzanine_tags i18n staticfiles %}
+
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
+	<meta name="description" content="{% block meta_description %}{% endblock %}">
+	<title>{% block meta_title %}{% endblock %}{% if settings.SITE_TITLE %} | {{ settings.SITE_TITLE }}{% endif %}</title>
+	<link rel="shortcut icon" href="{% static "img/favicon.ico" %}">
+
+	{% ifinstalled mezzanine.blog %}
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="{% url "blog_post_feed" "rss" %}">
+	<link rel="alternate" type="application/atom+xml" title="Atom" href="{% url "blog_post_feed" "atom" %}">
+	{% endifinstalled %}
+
+	{% compress css %}
+	<link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+	<!-- <link rel="stylesheet" href="{% static "css/mezzanine.css" %}"> -->
+	<!-- <link rel="stylesheet" href="{% static "css/bootstrap-theme.css" %}"> -->
+	{% if LANGUAGE_BIDI %}
+	<link rel="stylesheet" href="{% static "css/bootstrap-rtl.css" %}">
+	{% endif %}
+	{% ifinstalled cartridge.shop %}
+	<link rel="stylesheet" href="{% static "css/cartridge.css" %}">
+	{% if LANGUAGE_BIDI %}
+	<!-- <link rel="stylesheet" href="{% static "css/cartridge.rtl.css" %}"> -->
+	{% endif %}
+	{% endifinstalled %}
+	{% block extra_css %}
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans|Raleway:400,600' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="{% static "css/style.css" %}">
+	{% endblock %}
+	{% endcompress %}
+
+	{% compress js %}
+	<script src="{% static "mezzanine/js/"|add:settings.JQUERY_FILENAME %}"></script>
+	<script src="{% static "js/bootstrap.js" %}"></script>
+	<script src="{% static "js/bootstrap-extras.js" %}"></script>
+	<script src="{% static "js/woodcraft_theme.js" %}"></script>
+	{% block extra_js %}{% endblock %}
+	{% endcompress %}
+
+	<!--[if lt IE 9]>
+	<script src="{% static "js/html5shiv.js" %}"></script>
+	<script src="{% static "js/respond.min.js" %}"></script>
+	<![endif]-->
+
+	{% block extra_head %}{% endblock %}
+</head>
+
+<body id="{% block body_id %}body{% endblock %}">
+
+<div class="container">
+	<div class="row">
+		<div class="pull-right">
+		{# this is the shopping cart readout #}
+		{% include "includes/user_panel.html" %}
+		</div>
+	</div>
+
+	<a href="#">
+		<div class="logo-container">
+			<img src="{% static "img/puravida_logo.png" %}" alt="Pura Vida Surf Shop logo.">
+		</div>
+	</a>
+</div><!--end container-->
+
+<div class="container">
+	<div class="navbar navbar-default" role="navigation">
+		<div class="navbar-header">
+			<div id="nav_bar_glyph_group">
+				<a href="{% url "shop_cart" %}" id="shopping_cart_nav">
+					<span class="glyphicon glyphicon-shopping-cart larger">
+					</span>
+				</a>
+				<a href="#" id="search_link_nav">
+					<span class="glyphicon glyphicon-search larger" id="search_icon_nav"></span>
+				</a>
+			</div>
+			{# the following button is the bootstrap menu icon at small screens #}
+		  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		      <span class="sr-only">{% trans "Toggle Navigation" %}</span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		  </button>
+		  {% comment %}
+		  {% block navbar_title %}
+		  	{% if settings.SITE_TITLE %}
+		  		<a class="navbar-brand" href="/">{{ settings.SITE_TITLE }}</a>
+		  	{% endif %}
+		  	{% if settings.SITE_TAGLINE %}
+		  		<p class="navbar-text visible-lg">{{ settings.SITE_TAGLINE }}</p>
+		  	{% endif %}
+		  {% endblock%}
+		  {% endcomment %}
+		</div><!--end navbar-header-->
+		 <!--menu and search bar-->
+			<div class="navbar-collapse collapse">
+				{% comment %}
+			    {% block navbar_search_form %}{% search_form "all" %}{% endblock %}
+			  {% endcomment %}
+			    {% block navbar_dropdown_menu %}{% page_menu "pages/menus/dropdown.html" %}{% endblock %}
+			</div>
+	</div>
+</div><!--end container-->
+
+<div class="container">
+	{% nevercache %}
+		{% if messages %}
+			<div class="messages">
+			{% for message in messages %}
+				<div class="alert alert-dismissable alert-{{ message.tags }}" data-alert="alert">
+				    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+				    {{ message }}
+				</div>
+			{% endfor %}
+			</div>
+		{% endif %}
+	{% endnevercache %}
+	<div id="search_container_nav">
+		{% block navbar_search_form %}{% search_form "all" %}{% endblock %}
+	</div>
+	<h1>{% block title %}{% endblock %}</h1>
+
+	<ul class="breadcrumb">
+	{% spaceless %}
+	{% block breadcrumb_menu %}{% page_menu "pages/menus/breadcrumb.html" %}{% endblock %}
+	{% endspaceless %}
+	</ul>
+</div><!--end container-->
+
+<div class="container">
+	{% comment %}
+		<div class="col-md-2 left">
+		    {% block left_panel %}
+		    <div class="panel panel-default tree">{% page_menu "pages/menus/tree.html" %}</div>
+		    {% endblock %}
+		</div>
+	{% endcomment %}
+
+	{# "moved the following HTML to inside the block main for more control(to index.html)" #}
+		<!--<div class="col-md-12 middle">-->
+	  {% block main %}<p>derp</p>{% endblock %}
+		<!-- </div> -->
+
+	{% comment "This HTML is removed for this theme"%}
+	<div class="col-md-3 right">
+    {% nevercache %}
+    	{% include "includes/language_selector.html" %}
+    	{% include "includes/user_panel.html" %}
+    {% endnevercache %}
+    <div class="panel panel-default">
+    	<div class="panel-body">
+    		{% block right_panel %}
+	    		{% ifinstalled mezzanine.twitter %}
+	    		{% include "twitter/tweets.html" %}
+	    		{% endifinstalled %}
+    		{% endblock %}
+    	</div>
+    </div>
+	</div>
+	{% endcomment %}
+	{% block right_panel %}{% endblock %}
+</div><!--end container-->
+
+<footer>
+<div class="container">
+	{% comment %}
+		{% page_menu "pages/menus/footer.html" %}
+	{% endcomment %}
+
+	<div class="row top-footer-border">
+		<div class="col-sm-4" id="hours_of_operation">
+			<h3>Hours of Operation</h3>
+				<dl>
+					<dt>Wednesday&ndash;Saturday:</dt>
+					<dd>10 am&ndash;5 pm</dd>
+					<dt>Monday:</dt>
+					<dd>10 am&ndash;1 pm</dd>
+					<dt>Sunday &amp; Tuesday:</dt>
+					<dd>Closed</dd>
+				</dl>
+		</div>
+		<div class="col-sm-4">
+			<h3>Location</h3>
+			<address>
+				<a href="https://goo.gl/maps/LqTMcmwvbi12">
+					1327 Main St<br>
+					Philomath, OR 97370
+			 	</a>
+			</address>
+			<div id="map">
+			</div>
+		</div>
+		<div class="col-sm-4" id="contact_us">
+			<h3>Contact Us</h3>
+			<dl>
+				<dt>Phone:</dt>
+				<dd>(541) 929-SURF</dd>
+				<dt>Email:</dt>
+				<dd><span>Shop:</span>
+					<a href="mailto:jim@pvsurfshop.com">jim@pvsurfshop.com</a>
+				</dd>
+				<dd><span>Custom boards &amp; repair:</span> 
+					<a href="mailto:jim@pvsurfshop.com">robert@pvsurfshop.com</a>
+				</dd>
+				<dt>Social Media:</dt>
+				<dd></dd>
+			</dl>
+		</div>
+	</div>
+
+
+
+<div class="row">
+<p class="site-info text-center">
+		Put SSL Seal here |
+    {% trans "Site and Theme by" %}
+    <a href="https://kattare.com" target="_blank"> K&auml;ttare Web Solutions</a>
+</p>
+</div>
+</div>
+</footer>
+
+{% block footer_js %}
+{% include "includes/footer_scripts.html" %}
+{% endblock %}
+
+
+<script src="{% static "js/init_map.js"%}">
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+        async defer></script>
+      
+
+</body>
+</html>

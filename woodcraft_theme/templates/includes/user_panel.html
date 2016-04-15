@@ -1,0 +1,21 @@
+{% load mezzanine_tags %}
+<div class="user-panel">
+<div class="panel-body">
+
+{# Adding the search icon here as well as inside the nav bar #}
+<div id="search_container">
+	{% block navbar_search_form %}{% search_form "all" %}{% endblock %}
+</div>
+	<a href="#" id="search_link"><span class="glyphicon glyphicon-search" id="search_icon"></span>Search</a>
+
+{% ifinstalled cartridge.shop %}
+	{% include "shop/includes/user_panel.html" %}
+{% endifinstalled %}
+{% ifinstalled mezzanine.accounts %}
+	{% ifinstalled cartridge.shop %}
+		<br>
+	{% endifinstalled %}
+	{% include "accounts/includes/user_panel.html" %}
+{% endifinstalled %}
+</div>
+</div>

@@ -1,0 +1,9 @@
+*.pyc
+*.pyo
+.DS_Store
+.coverage
+local_settings.py
+/static
+
+woodcraft_theme/static/design_files/*
+woodcraft_theme/static/img/*

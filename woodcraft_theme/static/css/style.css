@@ -1,0 +1,405 @@
+/* "Woodcraft Lite", Theme for Mezzanine by Kattare Web Solutions*/
+
+#search_link {
+	margin-right: 20px;
+}
+#search_icon {
+	margin-right: 5px;
+}
+#search_container {
+	display: none;
+	margin-right: 24px;
+	position: relative;
+	top: 12px;
+}
+#search_container .form-control, 
+#search_container_nav .form-control {
+	border-radius: 0;
+	border: 1px solid #572600;
+}
+@media screen and (max-width: 767px) {
+	#search_link, #search_icon, #search_container {
+		display: none;
+	}
+}
+.logo-container {
+	background-image: url('../img/surfboard.jpg');
+	background-repeat: no-repeat;
+	background-size: 100%;
+	height: 250px;
+}
+@media screen and (max-width: 767px){
+	.logo-container {
+		background-image: none;
+	}
+}
+.logo-container img {
+	opacity: .8;
+	margin: 0 auto;
+	display: block;
+	width: 180px;
+	position: relative;
+	top: 20px;
+}
+
+
+h1 {
+	border-bottom: 1px solid #572600;
+	padding-bottom: .6em;
+}
+
+h1, h2, h3 {
+	font-family: 'raleway', helvetica, arial, sans-serif;
+	font-weight: 600;
+	color: #572600;
+	text-align: center;
+	text-transform: uppercase;
+}
+h2 {
+	margin-bottom: 24px;
+}
+
+.blog-overviews h2 {
+	text-align: left;
+}
+
+.blog-bar, .blog-bar h3 {
+	text-align: right;
+}
+
+
+/*edited bootstrap rules*/
+a, a:visited {
+	color: #572600;
+}
+a:hover, a:focus {
+	color: #a87943;
+}
+/*edited bootstrap rules*/
+.btn-default {
+	border-radius: 0px;
+}
+.btn-primary {
+	background-color: #0090B4;
+	border: none;
+	border-radius: 0;
+	-webkit-transition-duration: .2s;
+	-moz-transition-duration: .2s;
+	-o-transition-duration: .2s;
+	transition-duration: .2s;
+}
+.btn-primary:visited {
+	color: white;
+}
+.btn-primary:hover {
+	background-color: #004557;
+}
+
+/*edited bootstrap rules*/
+body {
+	line-height: 1.6em;
+	color: #572600;
+	font-family: 'open sans', helvetica, arial, sans-serif;/*note - add in HTML*/
+}
+
+address a {
+	text-align: center;
+}
+
+/*edited bootstrap rules*/
+.navbar-default {
+	margin-top: 12px;
+	margin-bottom: 0;
+	border: none;
+	border-radius: 0px; 
+	border-top: 1px solid #572600;
+	border-bottom: 1px solid #572600;
+	background-color: inherit;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #572600;
+}
+
+/*edited bootstrap rules*/
+.navbar-nav {
+	width: auto;
+	display: inline-block;
+	float: none;
+}
+.navbar-collapse {
+	text-align: center;
+	line-height: 0; /*hack to remove annoying gap*/
+}
+.navbar-nav > li > a::before {
+	content: '';
+	position: absolute;
+	width: 1px;
+	height: 20px;
+	top: 15px;
+	right: -1px;
+	background-color: #572600;
+	display: inline-block;
+}
+@media screen and (max-width: 767px) {
+	.navbar-nav > li > a::before {
+		display: none;
+	}
+}
+
+.hide-divider a::before {
+	/*works with the woodcraft js for navigation styling*/
+	display: none !important;
+}
+
+/*edited bootstrap rules*/
+.navbar-nav > li > a {
+	color: #572600;
+	text-transform: uppercase;
+	font-weight: normal;
+}
+
+/*edited bootstrap rules*/
+.navbar-default .navbar-nav > .active > a, 
+.navbar-default .navbar-nav > .active > a:hover, 
+.navbar-default .navbar-nav > .active > a:focus {
+	color: #f4f4f4;
+	background-color: #572600 !important;
+}
+
+/*edited bootstrap rules*/
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  background-color: #572600;
+  color: #f4f4f4;
+}
+.navbar-default .navbar-toggle {
+	border-radius: 0;
+	border: 1px solid #572600;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #572600;
+}
+
+/*glyphicon edits for nav bar*/
+#nav_bar_glyph_group { 
+	width: 50%; 
+	position: absolute;
+	top: 10px;
+}
+.glyphicon.larger {
+	font-size: 24px;
+	/*float: left;*/
+}
+#search_container_nav {
+	display: none;
+}
+#search_link_nav {
+	position: absolute;
+/*	background: green;*/
+	right: 0;
+}
+#search_icon_nav {
+	position: relative;
+	left: 12px;
+}
+#shopping_cart_nav {
+	margin-left: 12px;
+}
+@media screen and (min-width: 767px) {
+	#nav_bar_glyph_group {
+		display: none;
+	}
+}
+
+
+
+/*edited bootstrap rules*/
+.dropdown-menu {
+	box-shadow: none;
+	border: 1px solid #572600;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
+/*edited bootstrap rules*/
+.breadcrumb {
+	background-color: transparent;
+}
+
+/*edited bootstrap rules*/
+.thumbnail {
+	border: none;
+}
+
+.thumbnail .caption {
+	color: inherit;
+	text-align: center;
+}
+
+.thumbnail img {
+	max-width: 250px;
+}
+
+#hours_of_operation dl, #contact_us dl, address {
+	text-align: center;
+}
+
+#hours_of_operation dt, #contact_us dt {
+	font-family: 'Raleway', Helvetica, Arial, sans-serif;
+	text-transform: uppercase;
+}
+
+.top-footer-border {
+	border-top: 1px solid #572600;
+}
+.top-footer-border div {
+	padding-bottom: 33px;
+}
+.top-footer-border div:nth-child(2) {
+	border-left: 1px solid #572600;
+	border-right: 1px solid #572600;
+}
+
+/*Carousel*/
+/*.carousel-caption {
+	padding-bottom: 100px;
+}*/
+.carousel-caption h2 {
+	margin-bottom: 12px;
+	color: white;
+	text-shadow: 2px 2px 2px black;
+}
+.carousel-caption p {
+	text-shadow: 2px 2px 2px black;
+	margin-bottom: 24px;
+}
+@media screen and (max-width: 767px){
+	.carousel-caption {
+		display: none;
+	}
+}
+@media screen and (min-width: 992px){
+	.carousel-caption {
+		padding-bottom: 90px;
+	}
+}
+
+/* Blog */
+
+/* edited bootstrap rules */
+.img-thumbnail {
+	border-radius: 0;
+	border: 1px solid #ca9962;
+}
+/* edited bootstrap rules */
+.pagination > li:first-child > a, 
+.pagination > li:first-child > span,
+.pagination > li:last-child > a, 
+.pagination > li:last-child > span {
+	border-radius: 0;
+}
+
+.pagination > li > span, .pagination > li > a {
+	color: #572600;
+	border: 1px solid #ca9962;
+}
+.pagination > .active > a {
+	background-color: #572600;
+	border: 1px solid #ca9962;
+}
+.pagination > .active > a:hover {
+	background-color: #ca9962;
+	border: 1px solid #ca9962;
+}
+
+.pagination > .disabled > span, 
+.pagination > .disabled > span:hover, 
+.pagination > .disabled > span:focus, 
+.pagination > .disabled > a, 
+.pagination > .disabled > a:hover, 
+.pagination > .disabled > a:focus {
+	border: 1px solid #ca9962;
+}
+
+.pagination > li > a:hover, .pagination > li > span:hover {
+	color: black;
+}
+
+/*Cartridge shop pages (not necessarily specific to cartridge)*/
+.shop-category-list .thumbnail .caption h4 {
+	padding: 24px 0;
+	border: 1px solid #572600;
+}
+.product-image-large .img-thumbnail {
+	border: 0;
+	padding: 0;
+}
+.checkout-info-group {
+	margin-top: 24px;
+}
+.control-label {
+	margin-right: 12px;
+}
+
+.price {
+	font-size: 1.4em;
+}
+
+.panel, .panel-default {
+	border-radius: 0px;
+}
+
+.checkout-form fieldset {
+	border-radius: 0;
+}
+.checkout-form legend {
+	position: relative;
+	bottom: 10px;
+	color: #572600;
+}
+
+.legend-match {
+	font-size: 22px;
+	margin-left: 24px;
+	line-height: .8;
+}
+
+/*footer stuff*/
+#map {
+	display: block;
+	margin: 0 auto;
+	width: 150px;
+	height: 150px;
+	background-color: grey;
+}
+#map, #map div:nth-child(2)  {
+	border: none;
+}
+.site-info {
+	margin-top: 30px;
+}
+
+/*theme helper classes for giving any particular section some extra space or border*/
+.space-out {
+	padding-top: 60px;
+	padding-bottom: 60px;
+}
+.space-out + .space-out {
+	padding-top: 0px;
+}
+.space-out-bottom {
+	padding-bottom: 60px;
+}
+.space-out-bottom-less {
+	padding-bottom: 30px;
+}
+
+.add-border-bottom {
+	border-bottom: 1px solid #572600;
+}
+
+a[href^="mailto:"] {
+	text-decoration: underline;
+}
