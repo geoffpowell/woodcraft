@@ -4,6 +4,7 @@
 .coverage
 local_settings.py
 /static
+notes.txt
 
 woodcraft_theme/static/design_files/*
 woodcraft_theme/static/img/*
