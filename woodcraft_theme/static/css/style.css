@@ -106,6 +106,17 @@ address a {
 	text-align: center;
 }
 
+.social-media-icons {
+	display: inline-block;
+}
+
+.social-media-icons img {
+	width: 30px;
+	height: 30px;
+	margin-top: 12px;
+}
+
+
 /*edited bootstrap rules*/
 .navbar-default {
 	margin-top: 12px;
@@ -249,6 +260,7 @@ address a {
 #hours_of_operation dt, #contact_us dt {
 	font-family: 'Raleway', Helvetica, Arial, sans-serif;
 	text-transform: uppercase;
+	margin-top: 20px;
 }
 
 .top-footer-border {
