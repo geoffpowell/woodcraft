@@ -14,7 +14,7 @@
 {{ page.gallery.content|richtext_filters|safe }}
 {% endeditable %}
 
-<div class="gallery row space-out-bottom">
+<div class="gallery row">
 {% with page.gallery.images.all as images %}
 {% for image in images %}
 <div class="col-xs-6 col-sm-3">
