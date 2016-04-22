@@ -23,7 +23,7 @@
 	}
 }
 .logo-container {
-	background-image: url('../img/surfboard.jpg');
+	/*background-image: url('../img/surfboard.jpg');*/
 	background-repeat: no-repeat;
 	background-size: 100%;
 	height: 250px;
