@@ -5,6 +5,7 @@
 local_settings.py
 /static
 notes.txt
+*.save
 
 woodcraft_theme/static/design_files/*
 woodcraft_theme/static/img/*
